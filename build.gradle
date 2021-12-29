@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group 'io.github.luizotavio'
+    version '1.8.8-SNAPSHOT'
+
+    repositories() {
+        mavenCentral()
+
+        maven {
+            name = "elmakers-repo"
+            url = "https://maven.elmakers.com/repository/"
+        }
+    }
+
+    dependencies() {
+        compileOnly("org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT")
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
+
+jar.enabled = false
