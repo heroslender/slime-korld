@@ -15,4 +15,6 @@ abstract class AbstractSlimeWorldStorage(
     @Throws(SlimeStorageException::class)
     abstract fun exists(name: String): Boolean
 
+    @Throws(SlimeStorageException::class)
+    abstract fun refresh(slimeWorld: SlimeWorld)
 }
