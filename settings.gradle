@@ -1,4 +1,5 @@
 rootProject.name = 'slime-korld'
 
 include('api')
+include('common')
 
