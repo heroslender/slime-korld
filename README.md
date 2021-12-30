@@ -32,7 +32,7 @@ repositories() {
 }   
 
 dependencies() {
-    implementation 'com.github.luiz-otavio.slime-korld:common:1.0.0'
+    implementation 'com.github.luiz-otavio:slime-korld:${PROJECT_VERSION}'
 }
 ```
 
@@ -44,7 +44,7 @@ repositories() {
 }
 
 dependencies() {
-    implementation("com.github.luiz-otavio.slime-korld:common:1.0.0")
+    implementation("com.github.luiz-otavio:slime-korld:${PROJECT_VERSION}")
 }
 ```
 
@@ -60,9 +60,9 @@ Maven:
 
 <dependencies>
     <dependency>
-        <groupId>com.github.luiz-otavio.slime-korld</groupId>
-        <artifactId>common</artifactId>
-        <version>1.0.0</version>
+        <groupId>com.github.luiz-otavio</groupId>
+        <artifactId>slime-korld</artifactId>
+        <version>${PROJECT_VERSION}</version>
     </dependency>
 </dependencies>
 ```
