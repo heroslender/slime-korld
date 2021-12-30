@@ -1,22 +1,18 @@
 package io.github.luizotavio.slimekorld.impl
 
+import io.github.luizotavio.slimekorld.SlimeDelegator
 import io.github.luizotavio.slimekorld.SlimeWorld
 import io.github.luizotavio.slimekorld.exception.SlimeNotFoundException
-import org.bukkit.*
+import org.bukkit.Bukkit
+import org.bukkit.World
 import java.io.File
 
 class LegacySlimeWorld(
     file: File,
     name: String,
-    gameMode: GameMode = GameMode.SURVIVAL,
-    difficulty: Difficulty = Difficulty.NORMAL,
-    spawnLocation: Location? = null
 ) : SlimeWorld(
     file,
-    name,
-    gameMode,
-    difficulty,
-    spawnLocation
+    name
 ) {
 
     private lateinit var world: World
@@ -30,15 +26,27 @@ class LegacySlimeWorld(
     }
 
     override fun refresh(): World {
-        TODO("not implemented")
+        if (::world.isInitialized) {
+            Bukkit.unloadWorld(world, false)
+
+            val storage = SlimeDelegator.getStorage()
+
+            this.world = storage.refresh(this)
+        }
+
+        return world
     }
 
-    override fun save() {
-        TODO("Not yet implemented")
-    }
+    override fun save() = SlimeDelegator.save(this)
 
     override fun delete() {
-        TODO("Not yet implemented")
+        Bukkit.unloadWorld(world, false)
+
+        val path = world.worldFolder
+
+        if (path.exists()) {
+            path.deleteRecursively()
+        }
     }
 
     internal fun setWorld(world: World) {
