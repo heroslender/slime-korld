@@ -10,3 +10,9 @@ def zstdVersion = "1.5.1-1"
 dependencies {
     implementation("com.github.luben:zstd-jni:${zstdVersion}")
 }
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}

@@ -2,5 +2,12 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+
 group 'io.github.luizotavio.slimekorld'
 version '1.8.8-SNAPSHOT'

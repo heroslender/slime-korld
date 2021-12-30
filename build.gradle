@@ -4,6 +4,7 @@ plugins {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
     group 'io.github.luizotavio'
     version '1.8.8-SNAPSHOT'
