@@ -7,4 +7,5 @@ version '1.8.8-SNAPSHOT'
 
 dependencies {
     implementation(project(':api'))
+    implementation(project(':stream'))
 }
