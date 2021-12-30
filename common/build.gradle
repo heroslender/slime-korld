@@ -3,8 +3,8 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
-group 'io.github.luizotavio.slimekorld'
-version '1.8.8-SNAPSHOT'
+group project_groupId
+version project_version
 
 compileKotlin {
     kotlinOptions {

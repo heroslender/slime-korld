@@ -9,5 +9,5 @@ compileKotlin {
 }
 
 
-group 'io.github.luizotavio.slimekorld'
-version '1.8.8-SNAPSHOT'
+group project_groupId
+version project_version

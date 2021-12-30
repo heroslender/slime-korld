@@ -2,10 +2,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
-group 'io.github.luizotavio.slimekorld'
-version '1.8.8-SNAPSHOT'
-
-def zstdVersion = "1.5.1-1"
+group project_groupId
+version project_version
 
 dependencies {
     implementation("com.github.luben:zstd-jni:${zstdVersion}")
