@@ -9,7 +9,10 @@ Slime Korld is a bukkit library written in Kotlin to make minecraft worlds based
 main() {
     val delegator = SlimeKorld.createDelegator()
     
-    val slimeWorld = delegator.createWorld("world.slime", "World")
+    val slimeWorld = delegator.createWorld(
+        File("world.slime"), 
+        "World"
+    )
 
     println("Slime world name: ${slimeWorld.name}")
 }
