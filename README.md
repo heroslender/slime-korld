@@ -1,4 +1,6 @@
 # Slime Korld
+[![](https://jitpack.io/v/luiz-otavio/slime-korld.svg)](https://jitpack.io/#luiz-otavio/slime-korld)
+
 Easily create many slime worlds with the Slime Korld.
 
 ## What is Slime Korld?
