@@ -6,7 +6,7 @@ import java.io.File
 import kotlin.jvm.Throws
 
 abstract class AbstractSlimeWorldStorage(
-    private val path: File
+    val path: File
 ) {
 
     @Throws(SlimeStorageException::class)
