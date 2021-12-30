@@ -7,21 +7,21 @@ import io.github.luizotavio.slimekorld.storage.LegacySlimeStorage
 import org.bukkit.Bukkit
 import java.io.File
 
-object SlimeDelegator {
+object SlimeKorld {
 
-    private lateinit var facade: SlimeFacade
+    private lateinit var delegator: SlimeDelegator
 
-    fun createDelegator(storage: File = Bukkit.getWorldContainer()): SlimeFacade {
-        if (::facade.isInitialized) {
+    fun createDelegator(storage: File = Bukkit.getWorldContainer()): SlimeDelegator {
+        if (::delegator.isInitialized) {
             throw IllegalStateException("SlimeDelegator already created")
         }
 
-        facade = SlimeFacade(
+        delegator = SlimeDelegator(
             LegacySlimeStorage(storage),
             LegacySlimeFactory(),
         )
 
-        return facade
+        return delegator
     }
 
     fun createSlimeWorld(file: File, name: String): SlimeWorld? {
@@ -40,15 +40,15 @@ object SlimeDelegator {
         return ensureFacade().abstractSlimeWorldStorage
     }
 
-    private fun ensureFacade(): SlimeFacade {
-        if (!::facade.isInitialized) {
+    private fun ensureFacade(): SlimeDelegator {
+        if (!::delegator.isInitialized) {
             throw IllegalStateException("SlimeDelegator not created")
         }
 
-        return facade
+        return delegator
     }
 
-    class SlimeFacade(
+    class SlimeDelegator(
         val abstractSlimeWorldStorage: AbstractSlimeWorldStorage,
         val slimeWorldFactory: SlimeWorldFactory
     ) {

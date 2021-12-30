@@ -1,6 +1,6 @@
 package io.github.luizotavio.slimekorld.impl
 
-import io.github.luizotavio.slimekorld.SlimeDelegator
+import io.github.luizotavio.slimekorld.SlimeKorld
 import io.github.luizotavio.slimekorld.SlimeWorld
 import io.github.luizotavio.slimekorld.exception.SlimeNotFoundException
 import org.bukkit.Bukkit
@@ -29,7 +29,7 @@ class LegacySlimeWorld(
         if (::world.isInitialized) {
             Bukkit.unloadWorld(world, false)
 
-            val storage = SlimeDelegator.getStorage()
+            val storage = SlimeKorld.getStorage()
 
             this.world = storage.refresh(this)
         }
@@ -37,7 +37,7 @@ class LegacySlimeWorld(
         return world
     }
 
-    override fun save() = SlimeDelegator.save(this)
+    override fun save() = SlimeKorld.save(this)
 
     override fun delete() {
         Bukkit.unloadWorld(world, false)

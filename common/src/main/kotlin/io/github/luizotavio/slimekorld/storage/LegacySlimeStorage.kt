@@ -1,6 +1,6 @@
 package io.github.luizotavio.slimekorld.storage
 
-import io.github.luizotavio.slimekorld.SlimeDelegator
+import io.github.luizotavio.slimekorld.SlimeKorld
 import io.github.luizotavio.slimekorld.SlimeWorld
 import io.github.luizotavio.slimekorld.exception.SlimeStorageException
 import io.github.luizotavio.slimekorld.impl.LegacySlimeWorld
@@ -38,7 +38,7 @@ class LegacySlimeStorage(
             throw SlimeStorageException("SlimeWorld must be of type LegacySlimeWorld")
         }
 
-        val target = SlimeDelegator.createSlimeWorld(
+        val target = SlimeKorld.createSlimeWorld(
             slimeWorld.file,
             slimeWorld.name
         ) ?: throw SlimeStorageException("Could not create SlimeWorld")
